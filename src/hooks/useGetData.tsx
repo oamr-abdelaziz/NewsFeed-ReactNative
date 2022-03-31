@@ -11,7 +11,6 @@ const useGetData = (url:String) => {
     
     fetchData(url)
     .then((data)=>{
-        console.log('data',data.articles);
         setData(data.articles);
         setLoading(false);
     })

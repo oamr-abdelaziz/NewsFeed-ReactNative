@@ -16,7 +16,7 @@ const Navigation = () => {
           options={{title: 'NewsFeed'}}
         />
         <MainStack.Screen
-          name="Detailed NewFeed"
+          name="DetailedNewFeed"
           component={DetailedNewFeed}
           options={{title: 'Detailed NewFeed'}}
         />
