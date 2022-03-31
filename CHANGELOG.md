@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.8](https://github.com/oamr-abdelaziz/NewsFeed-ReactNative/compare/v0.0.7...v0.0.8) (2022-03-31)
+
+
+### Features
+
+* **detailednewsfeed:** detailed newsfeed screen ([067758a](https://github.com/oamr-abdelaziz/NewsFeed-ReactNative/commit/067758ab15c3c2b56be0240424c0a5178c61cc9e))
+
 ### [0.0.7](https://github.com/oamr-abdelaziz/NewsFeed-ReactNative/compare/v0.0.6...v0.0.7) (2022-03-31)
 
 
