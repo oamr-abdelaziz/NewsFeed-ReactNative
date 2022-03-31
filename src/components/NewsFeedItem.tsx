@@ -4,11 +4,10 @@ import {Image, Text, TouchableOpacity, View} from 'react-native';
 
 const NewsFeedItem = ({newsItem}) => {
     const navigation = useNavigation();
-    console.log('navigation',navigation);
-
+    
   return (
     <View>
-      <TouchableOpacity onPress={()=>navigation.navigate('DetailedNewFeed')}>
+      <TouchableOpacity onPress={()=>navigation.navigate('DetailedNewFeed', {newsItem:newsItem})}>
         <Text>{newsItem.title}</Text>
       </TouchableOpacity>
       {newsItem.urlToImage && (
