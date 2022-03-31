@@ -8,11 +8,17 @@ const useGetData = (url:String) => {
 
   const getData=useCallback(() => {
     setLoading(true);
-    
     fetchData(url)
-    .then((data)=>{
-        setData(data.articles);
-        setLoading(false);
+    .then((data)=>{      
+      console.log(data);
+      setLoading(false);
+        if(data.status=='ok'){
+          setData(data.articles);
+          setError(null);
+        }
+        else{
+          setError(data.message)
+        }
     })
     .catch((err)=>{
         console.log('err',err);
@@ -22,12 +28,19 @@ const useGetData = (url:String) => {
     },
     [url],
   )
-
+  
   useEffect(()=>{
     getData();
   },[getData])
-  
-  return {data,loading,error}
+  useEffect(()=>{
+    console.log(loading,"loaaading..1");
+
+  },[loading])
+
+  const refresh=()=>{
+    getData();
+  }
+  return {data,loading,error,refresh}
 
 };
 export default useGetData;

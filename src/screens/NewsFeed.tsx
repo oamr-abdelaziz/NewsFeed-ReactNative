@@ -1,28 +1,48 @@
-import React, { useEffect } from 'react';
-import { StyleSheet, View } from 'react-native';
+import React, {useCallback, useEffect, useState} from 'react';
+import {
+  ActivityIndicator,
+  RefreshControl,
+  StyleSheet,
+  Text,
+  View,
+} from 'react-native';
 import MultipleNews from '../components/MultipleNews';
+import SearchBar from '../components/SearchBar';
 import useGetData from '../hooks/useGetData';
 
-const NewsFeed=({})=>{
-    
-    const {data,loading,error}=useGetData('top-headlines');
-    useEffect(()=>{
-        console.log(data);
-        
-    },[data])
-    
-    // const showNewsFeed=()=>{
-    //     return 
-    // }
+const NewsFeed = ({}) => {
+  const {data, loading, error, refresh} = useGetData('top-headlines');
+  const [filtredNews, setFilteredNews] = useState(data);
+  const [refreshing, setRefreshing] = useState(false);
 
-    return(
-        <View>
-            {data&&<MultipleNews news={data}/>}    
-        </View>
-    )
-}
+  const onRefresh = useCallback(() => {
+    setRefreshing(true);
+    refresh();
+    setTimeout(() => {
+      setRefreshing(false);
+    }, 50);
+  }, []);
 
-const styles = StyleSheet.create({
-    
-})
-export default NewsFeed
+  useEffect(() => {
+    setFilteredNews(data);
+  }, [data]);
+
+  return (
+    <View>
+      {!!filtredNews&&<SearchBar items={data}  setFilteredItems={setFilteredNews}/>}
+      {!!loading && <ActivityIndicator color="black" size={20} />}
+      {!!error && <Text>{error}</Text>}
+      {!!filtredNews && (
+        <MultipleNews
+          news={filtredNews}
+          refreshControl={
+            <RefreshControl refreshing={refreshing} onRefresh={onRefresh} />
+          }
+        />
+      )}
+    </View>
+  );
+};
+
+const styles = StyleSheet.create({});
+export default NewsFeed;
