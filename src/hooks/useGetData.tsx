@@ -13,6 +13,8 @@ const useGetData = (url:String) => {
       console.log(data);
       setLoading(false);
         if(data.status=='ok'){
+          console.log(data.articles);
+          
           setData(data.articles);
           setError(null);
         }

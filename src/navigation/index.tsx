@@ -9,7 +9,9 @@ const Navigation = () => {
   const MainStack = createNativeStackNavigator();
   return (
     <NavigationContainer>
-      <MainStack.Navigator>
+      <MainStack.Navigator screenOptions={{contentStyle:{paddingHorizontal:15}}
+        
+      }>
         <MainStack.Screen
           name="NewsFeed"
           component={NewsFeed}

@@ -1,31 +1,115 @@
 import React from 'react';
-import {Image, Text, View} from 'react-native';
+import {
+  Image,
+  Linking,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+} from 'react-native';
 
 const NewsFeedItemDetails = ({newsItem}) => {
-//     author: null
-// content: "GREENVILLE, S.C. —***LIVE COVERAGE FROM WYFF NEWS 4 ABOVE*** \r\nSummary: \r\nA student has been shot at Tanglewood Middle School in Greenville, South Carolina. Deputies said a suspect, who is a minor, i… [+3826 chars]"
-// description: "A student has been shot at Tanglewood Middle School in Greenville, South Carolina."
-// publishedAt: "2022-03-31T18:27:00Z"
-// source: {id: null, name: 'WYFF4 Greenville'}
-// title: "Student shot at Tanglewood Middle School in Greenville, South Carolina - WYFF4 Greenville"
-// url: "https://www.wyff4.com/article/south-carolina-greenville-school-shooting/39600904"
-// urlToImage:
+  const {
+    title,
+    description,
+    urlToImage,
+    content,
+    url,
+    author,
+    publishedAt,
+    source,
+  } = newsItem;
   return (
-    <View>
-        <Text>author: {newsItem.author}</Text>
-        <Text>content: {newsItem.content}</Text>
-        <Text>description: {newsItem.description}</Text>
-        <Text>published at: {newsItem.publishedAt}</Text>
-        <Text>source name: {newsItem.source.name}</Text>
-        <Text>title: {newsItem.title}</Text>
-        <Text>Url: {newsItem.url}</Text>
-      {newsItem.urlToImage && (
-        <Image
-          style={{width: 100, height: 100}}
-          source={{uri: newsItem.urlToImage}}
-        />
-      )}
+    <View style={styles.container}>
+      {!!title&&<Text style={styles.title}>{title}</Text>}
+      {!!description&&<Text style={styles.description}>{description}</Text>}
+      {!!urlToImage && <Image style={styles.img} source={{uri: urlToImage}} />}
+      {!!content&&<Text style={styles.content}>
+        {content.substring(content.lastIndexOf('[+'), -1)}
+      </Text>}
+      {url&&<Text style={styles.url}>For the full article:-<Text onPress={() => {
+            Linking.openURL(url);
+          }}
+          style={StyleSheet.flatten([styles.url, {color: 'blue'}])}>{url}</Text>
+      </Text>}
+      <View style={styles.authDate}>
+        {!!author&&
+        <View style={styles.authDateSingleView}>
+          <Text style={styles.author}>author:</Text>
+          <Text style={StyleSheet.flatten([styles.author,styles.marginZero])}>{author}</Text>
+        </View>}
+        {!!publishedAt&&<View >
+        <Text style={styles.publishedAt}>published at:</Text>
+        <Text style={StyleSheet.flatten([styles.publishedAt,styles.marginZero])}>{publishedAt}</Text>
+        </View>}
+      </View>
+      {!!source&&<Text style={styles.src}>{source.name}</Text>}
     </View>
   );
 };
+
+const styles = StyleSheet.create({
+  container: {},
+  title: {
+    color: 'black',
+    fontFamily: 'georgia',
+    fontSize: 18,
+    fontWeight: '700',
+    marginVertical: 5,
+  },
+  img: {
+    width: '100%',
+    height: 200,
+    borderRadius: 10,
+    resizeMode: 'cover',
+  },
+  description: {
+    color: 'black',
+    fontFamily: 'georgia',
+    fontSize: 16,
+    marginVertical: 5,
+  },
+  content: {
+    color: 'black',
+    fontFamily: 'georgia',
+    marginVertical: 5,
+    fontSize: 14,
+  },
+  author: {
+    color: 'black',
+    fontFamily: 'georgia',
+    marginVertical: 5,
+    fontSize: 10,
+  },
+  src: {
+    color: 'black',
+    fontFamily: 'georgia',
+    marginVertical: 15,
+    fontSize: 10,
+    alignSelf:'center',
+    fontWeight:'800'
+  },
+  publishedAt: {
+    color: 'black',
+    fontFamily: 'georgia',
+    marginVertical: 5,
+    fontSize: 10,
+  },
+  url: {
+    color: 'black',
+    fontFamily: 'georgia',
+    marginVertical: 5,
+    fontSize: 12,
+  },
+  authDate:{
+    flexDirection:'row',
+    justifyContent:'space-between'
+  },
+  marginZero:{
+    marginVertical:0
+  },
+  authDateSingleView:{
+    width:'50%'
+  }
+});
 export default NewsFeedItemDetails;
