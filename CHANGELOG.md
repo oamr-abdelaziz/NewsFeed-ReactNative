@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.13](https://github.com/oamr-abdelaziz/NewsFeed-ReactNative/compare/v0.0.12...v0.0.13) (2022-04-02)
+
+
+### Features
+
+* **theming:** add dark-light-theming ([8162719](https://github.com/oamr-abdelaziz/NewsFeed-ReactNative/commit/8162719d18a039b4a4461fd6b029615c274bb78a))
+
 ### [0.0.12](https://github.com/oamr-abdelaziz/NewsFeed-ReactNative/compare/v0.0.11...v0.0.12) (2022-04-02)
 
 
