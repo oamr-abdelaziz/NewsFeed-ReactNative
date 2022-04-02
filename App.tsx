@@ -8,20 +8,19 @@
  * @format
  */
 
-import React from 'react';
-import {
-  StyleSheet,
-} from 'react-native';
+import React, { useContext } from 'react';
+
+import ThemeButton from './src/components/ThemeButton';
 import Navigation from './src/navigation';
+import ThemeProvider from './src/theming/themeProvider';
 const App = () => {
+  
   return (
-    <>
+    <ThemeProvider>
       <Navigation/>
-    </>
+      <ThemeButton/>
+    </ThemeProvider>
   );
 };
-
-const styles = StyleSheet.create({
- });
 
 export default App;

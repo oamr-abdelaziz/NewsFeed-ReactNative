@@ -10,11 +10,8 @@ const useGetData = (url:String) => {
     setLoading(true);
     fetchData(url)
     .then((data)=>{      
-      // console.log(data);
       setLoading(false);
         if(data.status=='ok'){
-          console.log(data.articles);
-          
           setData(data.articles);
           setError(null);
         }
@@ -34,10 +31,6 @@ const useGetData = (url:String) => {
   useEffect(()=>{
     getData();
   },[getData])
-  useEffect(()=>{
-    console.log(loading,"loaaading..1");
-
-  },[loading])
 
   const refresh=()=>{
     getData();

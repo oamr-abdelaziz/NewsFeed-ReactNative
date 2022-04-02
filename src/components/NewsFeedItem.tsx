@@ -1,21 +1,23 @@
 import {useNavigation} from '@react-navigation/native';
-import React from 'react';
+import React, { useContext } from 'react';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
+import { ThemeContext } from '../theming/themeContext';
 
 const NewsFeedItem = ({newsItem}) => {
+  const {theme} = useContext(ThemeContext);
   const navigation = useNavigation();
 
   return (
     <View
       style={StyleSheet.flatten([
         styles.newsFeedItemView,
-        {borderColor: 'black'},
+        {borderColor:theme.border},
       ])}>
       <TouchableOpacity
         onPress={() =>
           navigation.navigate('DetailedNewFeed', {newsItem: newsItem})
         }>
-        <Text style={StyleSheet.flatten([styles.header,{color:'black'}])}>{newsItem.title}</Text>
+        <Text style={StyleSheet.flatten([styles.header,{color:theme.foreground}])}>{newsItem.title}</Text>
       </TouchableOpacity>
       {newsItem.urlToImage && (
         // <View style={{width:'100%',height:200}}>

@@ -27,12 +27,9 @@ const NewsFeed = ({}) => {
     if (typeof(data) == 'object'&&data!=null) {
       setFilteredNews(
         data.map((item, idx) => {
-            // console.log(idx);
             return Object.assign(item,{id:idx})
-        //   return {...item,id:idx}
         }),
       );
-    //   console.log(filteredNews);
       
     } else {
       setFilteredNews(data);

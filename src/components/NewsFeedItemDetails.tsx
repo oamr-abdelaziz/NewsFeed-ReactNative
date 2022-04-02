@@ -3,10 +3,10 @@ import {
   Image,
   Linking,
   StyleSheet,
-  Text,
   TouchableOpacity,
   View,
 } from 'react-native';
+import SpText from './SpText';
 
 const NewsFeedItemDetails = ({newsItem}) => {
   const {
@@ -21,29 +21,31 @@ const NewsFeedItemDetails = ({newsItem}) => {
   } = newsItem;
   return (
     <View style={styles.container}>
-      {!!title&&<Text style={styles.title}>{title}</Text>}
-      {!!description&&<Text style={styles.description}>{description}</Text>}
+      {!!title&&<SpText style={styles.title}>{title}</SpText>}
+      {!!description&&<SpText style={styles.description}>{description}</SpText>}
       {!!urlToImage && <Image style={styles.img} source={{uri: urlToImage}} />}
-      {!!content&&<Text style={styles.content}>
+      {!!content&&<SpText style={styles.content}>
         {content.substring(content.lastIndexOf('[+'), -1)}
-      </Text>}
-      {url&&<Text style={styles.url}>For the full article:-<Text onPress={() => {
+      </SpText>}
+      {url&&
+      <View style={{marginVertical:5}}>
+        <SpText style={styles.url}>For the full article:-</SpText>
+        <TouchableOpacity onPress={() => {
             Linking.openURL(url);
-          }}
-          style={StyleSheet.flatten([styles.url, {color: 'blue'}])}>{url}</Text>
-      </Text>}
+          }}><SpText 
+          style={StyleSheet.flatten([styles.url, {color: 'blue'}])}>{url}</SpText></TouchableOpacity></View>}
       <View style={styles.authDate}>
         {!!author&&
         <View style={styles.authDateSingleView}>
-          <Text style={styles.author}>author:</Text>
-          <Text style={StyleSheet.flatten([styles.author,styles.marginZero])}>{author}</Text>
+          <SpText style={styles.author}>author:</SpText>
+          <SpText style={StyleSheet.flatten([styles.author,styles.marginZero])}>{author}</SpText>
         </View>}
         {!!publishedAt&&<View >
-        <Text style={styles.publishedAt}>published at:</Text>
-        <Text style={StyleSheet.flatten([styles.publishedAt,styles.marginZero])}>{publishedAt}</Text>
+        <SpText style={styles.publishedAt}>published at:</SpText>
+        <SpText style={StyleSheet.flatten([styles.publishedAt,styles.marginZero])}>{publishedAt}</SpText>
         </View>}
       </View>
-      {!!source&&<Text style={styles.src}>{source.name}</Text>}
+      {!!source&&<SpText style={styles.src}>{source.name}</SpText>}
     </View>
   );
 };
@@ -51,11 +53,8 @@ const NewsFeedItemDetails = ({newsItem}) => {
 const styles = StyleSheet.create({
   container: {},
   title: {
-    color: 'black',
-    fontFamily: 'georgia',
     fontSize: 18,
     fontWeight: '700',
-    marginVertical: 5,
   },
   img: {
     width: '100%',
@@ -64,42 +63,26 @@ const styles = StyleSheet.create({
     resizeMode: 'cover',
   },
   description: {
-    color: 'black',
-    fontFamily: 'georgia',
     fontSize: 16,
-    marginVertical: 5,
   },
   content: {
-    color: 'black',
-    fontFamily: 'georgia',
-    marginVertical: 5,
     fontSize: 14,
   },
   author: {
-    color: 'black',
-    fontFamily: 'georgia',
-    marginVertical: 5,
+    fontSize: 10,
+  },
+  publishedAt: {
     fontSize: 10,
   },
   src: {
-    color: 'black',
-    fontFamily: 'georgia',
     marginVertical: 15,
     fontSize: 10,
     alignSelf:'center',
     fontWeight:'800'
   },
-  publishedAt: {
-    color: 'black',
-    fontFamily: 'georgia',
-    marginVertical: 5,
-    fontSize: 10,
-  },
   url: {
-    color: 'black',
-    fontFamily: 'georgia',
-    marginVertical: 5,
     fontSize: 12,
+    marginVertical:0
   },
   authDate:{
     flexDirection:'row',

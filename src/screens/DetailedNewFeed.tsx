@@ -1,5 +1,4 @@
 import React from 'react';
-import { StyleSheet } from 'react-native';
 import NewsFeedItemDetails from '../components/NewsFeedItemDetails';
 
 const DetailedNewFeed=({route})=>{
@@ -10,7 +9,5 @@ const DetailedNewFeed=({route})=>{
     )
 }
 
-const styles = StyleSheet.create({
-    
-})
+
 export default DetailedNewFeed

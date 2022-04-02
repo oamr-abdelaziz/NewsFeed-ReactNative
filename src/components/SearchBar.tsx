@@ -1,10 +1,11 @@
-import React, { useEffect, useState } from 'react'
+import React, { useContext, useEffect, useState } from 'react'
 import { Image, StyleSheet, TextInput, TouchableOpacity, View } from 'react-native'
+import { ThemeContext } from '../theming/themeContext';
 
 const SearchBar = ({items,setFilteredItems}) => {
+  const {theme}= useContext(ThemeContext)
     const [searchValue, setSearchValue] = useState(null);
     useEffect(() => {
-        // console.log(searchValue);
         if(searchValue!=null||searchValue=='')
             setFilteredItems(items.filter((item)=>item.title.toLowerCase().includes(searchValue.toLowerCase())))
         else
@@ -13,8 +14,8 @@ const SearchBar = ({items,setFilteredItems}) => {
     
     return (
         <View style={styles.textInputView}>
-            <TextInput placeholder='Filter results' placeholderTextColor='rgba(30,144,255,0.4)' style={styles.textInput} value={searchValue} onChangeText={(val)=>setSearchValue(val)}/>
-            <TouchableOpacity
+            <TextInput placeholder='Filter results' placeholderTextColor={theme.searchBarPlaceHolder} style={StyleSheet.flatten([styles.textInput,{color:theme.searchBarForeGround,borderColor:theme.searchBarBorder}])} value={searchValue} onChangeText={(val)=>setSearchValue(val)}/>
+            {/* <TouchableOpacity
             style={styles.closeButtonParent}
             onPress={() => setSearchValue(null)}
           >
@@ -22,7 +23,7 @@ const SearchBar = ({items,setFilteredItems}) => {
               style={styles.closeButton}
               source={require("../assets/close.png")}
             />
-          </TouchableOpacity>
+          </TouchableOpacity> */}
         </View>
    )
 }
@@ -30,19 +31,17 @@ const SearchBar = ({items,setFilteredItems}) => {
 const styles = StyleSheet.create({
     textInput:{
         borderWidth:1,
-        borderColor:'dodgerblue',
         borderRadius:10,
         textAlign:'center',
         width:'80%',
         margin:15,
-        color:'dodgerblue',
         padding:5,
-        left:25
- 
+        // borderColor:'dodgerblue'
+        // left:25
     },
     textInputView:{
         alignItems:'center',
-        flexDirection:'row',
+        // flexDirection:'row',
     },
     closeButton: {
         height: 16,
@@ -51,7 +50,8 @@ const styles = StyleSheet.create({
       closeButtonParent: {
         justifyContent: "center",
         alignItems: "center",
-        right:25
+        position:'absolute',
+        // right:25
       },
 })
 export default SearchBar
