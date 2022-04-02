@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.12](https://github.com/oamr-abdelaziz/NewsFeed-ReactNative/compare/v0.0.11...v0.0.12) (2022-04-02)
+
+
+### Bug Fixes
+
+* **scroll:** scrollview changed to flatlist ([f7f25fd](https://github.com/oamr-abdelaziz/NewsFeed-ReactNative/commit/f7f25fd172e1620ccf7e16d9a2601c3e6f87e372))
+
 ### [0.0.11](https://github.com/oamr-abdelaziz/NewsFeed-ReactNative/compare/v0.0.10...v0.0.11) (2022-04-01)
 
 ### [0.0.10](https://github.com/oamr-abdelaziz/NewsFeed-ReactNative/compare/v0.0.9...v0.0.10) (2022-03-31)
