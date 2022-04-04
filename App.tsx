@@ -8,15 +8,25 @@
  * @format
  */
 
-import React, { useContext } from 'react';
+import React from 'react';
+import { useTranslation } from 'react-i18next';
+import { Text, TouchableHighlight } from 'react-native';
 
 import ThemeButton from './src/components/ThemeButton';
 import Navigation from './src/navigation';
 import ThemeProvider from './src/theming/themeProvider';
+
 const App = () => {
-  
+  const {t,i18n} = useTranslation();
+  const toggleLang=()=>{
+    const lang= i18n.language;
+    i18n.changeLanguage(lang=='en'?'fr':'en')
+    console.log(i18n.language);
+  }
+
   return (
     <ThemeProvider>
+      <TouchableHighlight style={{alignItems:'center',padding:5}} onPress={()=>toggleLang()}><Text>toggle lang</Text></TouchableHighlight>
       <Navigation/>
       <ThemeButton/>
     </ThemeProvider>

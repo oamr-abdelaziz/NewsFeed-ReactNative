@@ -1,4 +1,5 @@
 import React, {useCallback, useEffect, useState} from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   ActivityIndicator,
   RefreshControl,
@@ -11,7 +12,8 @@ import SearchBar from '../components/SearchBar';
 import useGetData from '../hooks/useGetData';
 
 const NewsFeed = ({}) => {
-  const {data, loading, error, refresh} = useGetData('top-headlines');
+  const {i18n} = useTranslation();
+  const {data, loading, error, refresh} = useGetData('top-headlines',i18n.language);
   const [filteredNews, setFilteredNews] = useState(data);
   const [refreshing, setRefreshing] = useState(false);
 

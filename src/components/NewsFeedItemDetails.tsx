@@ -18,34 +18,35 @@ const NewsFeedItemDetails = ({newsItem}) => {
     author,
     publishedAt,
     source,
+    id
   } = newsItem;
   return (
     <View style={styles.container}>
-      {!!title&&<SpText style={styles.title}>{title}</SpText>}
-      {!!description&&<SpText style={styles.description}>{description}</SpText>}
+      {!!title&&<SpText key={`News-${id}-title`} style={styles.title}>{title}</SpText>}
+      {!!description&&<SpText key={`News-${id}-desription`} style={styles.description}>{description}</SpText>}
       {!!urlToImage && <Image style={styles.img} source={{uri: urlToImage}} />}
-      {!!content&&<SpText style={styles.content}>
+      {!!content&&<SpText style={styles.content} key={`News-${id}-content`}>
         {content.substring(content.lastIndexOf('[+'), -1)}
       </SpText>}
       {url&&
       <View style={{marginVertical:5}}>
-        <SpText style={styles.url}>For the full article:-</SpText>
+        <SpText style={styles.url} key={`url`}>For the full article:-</SpText>
         <TouchableOpacity onPress={() => {
             Linking.openURL(url);
           }}><SpText 
-          style={StyleSheet.flatten([styles.url, {color: 'blue'}])}>{url}</SpText></TouchableOpacity></View>}
+          style={StyleSheet.flatten([styles.url, {color: 'blue'}])} key={`News-${id}-url`}>{url}</SpText></TouchableOpacity></View>}
       <View style={styles.authDate}>
         {!!author&&
         <View style={styles.authDateSingleView}>
-          <SpText style={styles.author}>author:</SpText>
-          <SpText style={StyleSheet.flatten([styles.author,styles.marginZero])}>{author}</SpText>
+          <SpText style={styles.author} key={`author`}>author:</SpText>
+          <SpText style={StyleSheet.flatten([styles.author,styles.marginZero])} key={`News-${id}-author`}>{author}</SpText>
         </View>}
         {!!publishedAt&&<View >
-        <SpText style={styles.publishedAt}>published at:</SpText>
-        <SpText style={StyleSheet.flatten([styles.publishedAt,styles.marginZero])}>{publishedAt}</SpText>
+        <SpText style={styles.publishedAt} key={`publishedAt`}>published at:</SpText>
+        <SpText style={StyleSheet.flatten([styles.publishedAt,styles.marginZero])} key={`News-${id}-publishedAt`}>{publishedAt}</SpText>
         </View>}
       </View>
-      {!!source&&<SpText style={styles.src}>{source.name}</SpText>}
+      {!!source&&<SpText style={styles.src} key={`sourceName`}>{source.name}</SpText>}
     </View>
   );
 };

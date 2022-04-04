@@ -7,7 +7,7 @@ const ThemeProvider=({children})=>{
     const [theme,setTheme]=useState(themes.dark);
 
     const toggleTheme=()=>{
-        setTheme(PrevTheme=>PrevTheme==themes.light?themes.dark:themes.light)
+        setTheme(PrevTheme=>PrevTheme==themes.light?themes.dark:themes.light);
     }
 
     return(

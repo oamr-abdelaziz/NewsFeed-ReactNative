@@ -1,14 +1,14 @@
 import React, {useCallback, useEffect, useState} from 'react';
 import { fetchData } from '../APIsCalls/fetchData';
 
-const useGetData = (url:String) => {
+const useGetData = (url:String,lng:String) => {
   const [data, setData] = useState([]);
   const [loading, setLoading] = useState(false);
   const [error, setError] = useState(null);
 
   const getData=useCallback(() => {
     setLoading(true);
-    fetchData(url)
+    fetchData(url,lng)
     .then((data)=>{      
       setLoading(false);
         if(data.status=='ok'){
@@ -25,7 +25,7 @@ const useGetData = (url:String) => {
         setLoading(false);
     });
     },
-    [url],
+    [url,lng],
   )
   
   useEffect(()=>{

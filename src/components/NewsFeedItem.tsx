@@ -1,11 +1,13 @@
 import {useNavigation} from '@react-navigation/native';
 import React, { useContext } from 'react';
+import { useTranslation } from 'react-i18next';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
 import { ThemeContext } from '../theming/themeContext';
 
 const NewsFeedItem = ({newsItem}) => {
   const {theme} = useContext(ThemeContext);
   const navigation = useNavigation();
+  const {t,i18n} = useTranslation();
 
   return (
     <View
@@ -17,7 +19,7 @@ const NewsFeedItem = ({newsItem}) => {
         onPress={() =>
           navigation.navigate('DetailedNewFeed', {newsItem: newsItem})
         }>
-        <Text style={StyleSheet.flatten([styles.header,{color:theme.foreground}])}>{newsItem.title}</Text>
+        <Text style={StyleSheet.flatten([styles.header,{color:theme.foreground}])}>{t(`News-${newsItem.id}-title`,newsItem.title)}</Text>
       </TouchableOpacity>
       {newsItem.urlToImage && (
         // <View style={{width:'100%',height:200}}>
