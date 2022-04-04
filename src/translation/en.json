@@ -1,5 +1,17 @@
 {
     "translation": {
-        "title":"NewsFeed"
+        "NewsFeed":"NewsFeed",
+        "Detailed NewsFeed":"Detailed NewsFeed",
+        "Settings":"Settings",
+        "Language Selector":"Language Selector",
+        "Display language":"Display language",
+        "About":"About",
+        "English":"English",
+        "French":"French",
+        "Home":"Home",
+        "search":"Filter Results",
+        "url":"For the full article :-",
+        "author":"author",
+        "publish":"published at :"
     }
 }

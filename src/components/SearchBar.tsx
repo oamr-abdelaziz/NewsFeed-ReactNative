@@ -1,8 +1,11 @@
+import { t } from 'i18next';
 import React, { useContext, useEffect, useState } from 'react'
+import { useTranslation } from 'react-i18next';
 import { Image, StyleSheet, TextInput, TouchableOpacity, View } from 'react-native'
 import { ThemeContext } from '../theming/themeContext';
 
 const SearchBar = ({items,setFilteredItems}) => {
+  const {t} = useTranslation();
   const {theme}= useContext(ThemeContext)
     const [searchValue, setSearchValue] = useState(null);
     useEffect(() => {
@@ -14,7 +17,7 @@ const SearchBar = ({items,setFilteredItems}) => {
     
     return (
         <View style={styles.textInputView}>
-            <TextInput placeholder='Filter results' placeholderTextColor={theme.searchBarPlaceHolder} style={StyleSheet.flatten([styles.textInput,{color:theme.searchBarForeGround,borderColor:theme.searchBarBorder}])} value={searchValue} onChangeText={(val)=>setSearchValue(val)}/>
+            <TextInput placeholder={t('search')} placeholderTextColor={theme.searchBarPlaceHolder} style={StyleSheet.flatten([styles.textInput,{color:theme.searchBarForeGround,borderColor:theme.searchBarBorder}])} value={searchValue} onChangeText={(val)=>setSearchValue(val)}/>
             {/* <TouchableOpacity
             style={styles.closeButtonParent}
             onPress={() => setSearchValue(null)}

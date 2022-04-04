@@ -1,48 +1,58 @@
 import {NavigationContainer} from '@react-navigation/native';
-import {createNativeStackNavigator} from '@react-navigation/native-stack';
-import React, { useContext } from 'react';
-import { useTranslation } from 'react-i18next';
-import { StyleSheet } from 'react-native';
+import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
+import React from 'react';
+import {useTranslation} from 'react-i18next';
+import {Image, StyleSheet, Text} from 'react-native';
 // import ThemeButton from '../components/ThemeButton';
-import DetailedNewFeed from '../screens/DetailedNewFeed';
-import NewsFeed from '../screens/NewsFeed';
-import { ThemeContext } from '../theming/themeContext';
-
+// import Ionicons from 'react-native-vector-icons/Ionicons';
+import {ThemeContext} from '../theming/themeContext';
+import HomeStackScreen from './HomeStack';
+import SettingsStack from './SettingsStack';
+import images from "../assets/images"
+import { t } from 'i18next';
 const Navigation = () => {
-  const {theme}= useContext(ThemeContext)
-  const MainStack = createNativeStackNavigator();
-  const {t,i18n} = useTranslation();
-  
-  
+  const Tab = createBottomTabNavigator();
+
   return (
     <NavigationContainer>
-      <MainStack.Navigator screenOptions={{
-        contentStyle:{paddingHorizontal:15,backgroundColor:theme.background}
-        ,headerStyle:{backgroundColor:theme.headerBackground},
-        headerTitleAlign:'center',
-        headerTintColor:theme.headerForeground,
-        // headerRight:()=><></>
-      
-      }
-        
-      }>
-        <MainStack.Screen
-          name="NewsFeed"
-          component={NewsFeed}
-          options={{title: t("title")}}
-        />
-        <MainStack.Screen
-          name="DetailedNewFeed"
-          component={DetailedNewFeed}
-          options={{title: t('Detailed NewFeed')}}
-        />
-      </MainStack.Navigator>
+      <Tab.Navigator
+        screenOptions={({route}) => ({
+          headerShown:false,
+          tabBarIcon: ({focused, color, size}) => {
+            let iconName;
+
+            if (route.name === t('Home')) {
+              iconName = focused
+                ? 'ios-information-circle'
+                : 'ios-information-circle-outline';
+            } else if (route.name === 'Settings') {
+              iconName = focused ? 'ios-list-box' : 'ios-list';
+            }
+            let icon;
+            if(route.name==t('Home')){
+              icon='Home'
+            }
+            else{
+              icon='Settings'
+            }
+            // You can return any component that you like here!
+            return <Image style={{width:size,height:size}} source={images[icon]} 
+            // color={color}
+            />
+            
+            // <Ionicons name={iconName} size={size} color={color} />;
+          },
+          tabBarActiveTintColor: 'tomato',
+          tabBarInactiveTintColor: 'gray',
+        })}
+        >
+        <Tab.Screen name={t("Home")} component={HomeStackScreen} />
+        <Tab.Screen name={t("Settings")} component={SettingsStack} />
+      </Tab.Navigator>
     </NavigationContainer>
   );
 };
 
-const styles = StyleSheet.create({
-    
-})
+const styles = StyleSheet.create({});
 
 export default Navigation;

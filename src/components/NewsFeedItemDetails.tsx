@@ -1,14 +1,17 @@
+import { t } from 'i18next';
 import React from 'react';
+import { useTranslation } from 'react-i18next';
 import {
   Image,
   Linking,
   StyleSheet,
+  Text,
   TouchableOpacity,
   View,
 } from 'react-native';
-import SpText from './SpText';
 
 const NewsFeedItemDetails = ({newsItem}) => {
+  const {t} = useTranslation();
   const {
     title,
     description,
@@ -22,31 +25,31 @@ const NewsFeedItemDetails = ({newsItem}) => {
   } = newsItem;
   return (
     <View style={styles.container}>
-      {!!title&&<SpText key={`News-${id}-title`} style={styles.title}>{title}</SpText>}
-      {!!description&&<SpText key={`News-${id}-desription`} style={styles.description}>{description}</SpText>}
+      {!!title&&<Text style={styles.title}>{title}</Text>}
+      {!!description&&<Text style={styles.description}>{description}</Text>}
       {!!urlToImage && <Image style={styles.img} source={{uri: urlToImage}} />}
-      {!!content&&<SpText style={styles.content} key={`News-${id}-content`}>
+      {!!content&&<Text style={styles.content}>
         {content.substring(content.lastIndexOf('[+'), -1)}
-      </SpText>}
+      </Text>}
       {url&&
       <View style={{marginVertical:5}}>
-        <SpText style={styles.url} key={`url`}>For the full article:-</SpText>
+        <Text style={styles.url} >{t('url')}</Text>
         <TouchableOpacity onPress={() => {
             Linking.openURL(url);
-          }}><SpText 
-          style={StyleSheet.flatten([styles.url, {color: 'blue'}])} key={`News-${id}-url`}>{url}</SpText></TouchableOpacity></View>}
+          }}><Text 
+          style={StyleSheet.flatten([styles.url, {color: 'blue'}])} >{url}</Text></TouchableOpacity></View>}
       <View style={styles.authDate}>
         {!!author&&
         <View style={styles.authDateSingleView}>
-          <SpText style={styles.author} key={`author`}>author:</SpText>
-          <SpText style={StyleSheet.flatten([styles.author,styles.marginZero])} key={`News-${id}-author`}>{author}</SpText>
+          <Text style={styles.author} >{t('author')}</Text>
+          <Text style={StyleSheet.flatten([styles.author,styles.marginZero])} >{author}</Text>
         </View>}
         {!!publishedAt&&<View >
-        <SpText style={styles.publishedAt} key={`publishedAt`}>published at:</SpText>
-        <SpText style={StyleSheet.flatten([styles.publishedAt,styles.marginZero])} key={`News-${id}-publishedAt`}>{publishedAt}</SpText>
+        <Text style={styles.publishedAt} >{t('publish')}</Text>
+        <Text style={StyleSheet.flatten([styles.publishedAt,styles.marginZero])} >{publishedAt}</Text>
         </View>}
       </View>
-      {!!source&&<SpText style={styles.src} key={`sourceName`}>{source.name}</SpText>}
+      {!!source&&<Text style={styles.src} >{source.name}</Text>}
     </View>
   );
 };
