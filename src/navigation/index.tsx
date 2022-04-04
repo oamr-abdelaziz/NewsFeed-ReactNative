@@ -11,10 +11,23 @@ import SettingsStack from './SettingsStack';
 import images from "../assets/images"
 import { t } from 'i18next';
 const Navigation = () => {
+  //adb shell am start -W -a android.intent.action.VIEW -d "newsfeed://set" com.newsfeed
+  //adb shell am start -W -a android.intent.action.VIEW -d "newsfeed://news" com.newsfeed
   const Tab = createBottomTabNavigator();
-
+  const linking = {
+    prefixes: [
+       'newsfeed://'
+    ],
+    config: {
+      screens: {
+        Home: 'news',
+        Settings: 'settings',
+      },
+    },
+  };
+  
   return (
-    <NavigationContainer>
+    <NavigationContainer  linking={linking}>
       <Tab.Navigator
         screenOptions={({route}) => ({
           headerShown:false,
