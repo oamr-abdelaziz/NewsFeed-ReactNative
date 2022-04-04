@@ -18,7 +18,6 @@ import { changeLanguage } from './src/utils/changeLanguage';
 
 const App = () => {
   const {t,i18n} = useTranslation();
-  
   const getData = async () => {
     try {
       const value = await AsyncStorage.getItem('lang')
