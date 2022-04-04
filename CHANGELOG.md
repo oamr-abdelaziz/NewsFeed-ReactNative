@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.17](https://github.com/oamr-abdelaziz/NewsFeed-ReactNative/compare/v0.0.16...v0.0.17) (2022-04-04)
+
+
+### Bug Fixes
+
+* **deeplinking:** feeplinking with lang option ([ea4cdaa](https://github.com/oamr-abdelaziz/NewsFeed-ReactNative/commit/ea4cdaaef301cd565b3439fb56fe9a323b26ac48))
+
 ### [0.0.16](https://github.com/oamr-abdelaziz/NewsFeed-ReactNative/compare/v0.0.15...v0.0.16) (2022-04-04)
 
 
