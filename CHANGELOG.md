@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.15](https://github.com/oamr-abdelaziz/NewsFeed-ReactNative/compare/v0.0.14...v0.0.15) (2022-04-04)
+
+
+### Bug Fixes
+
+* **translation:** total translation feature with bottom nav and on restart translation ([de399f0](https://github.com/oamr-abdelaziz/NewsFeed-ReactNative/commit/de399f04fa20793fdb1d9e2e6b77cde490829a5e))
+
 ### [0.0.14](https://github.com/oamr-abdelaziz/NewsFeed-ReactNative/compare/v0.0.13...v0.0.14) (2022-04-04)
 
 
