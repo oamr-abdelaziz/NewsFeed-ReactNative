@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.20](https://github.com/oamr-abdelaziz/NewsFeed-ReactNative/compare/v0.0.19...v0.0.20) (2022-04-05)
+
+
+### Features
+
+* **arabictranslation:** add arabic translation with rtl support ([8b961fb](https://github.com/oamr-abdelaziz/NewsFeed-ReactNative/commit/8b961fbda39e8bd8721292cab14c9fec0688916a))
+
 ### [0.0.19](https://github.com/oamr-abdelaziz/NewsFeed-ReactNative/compare/v0.0.18...v0.0.19) (2022-04-05)
 
 
