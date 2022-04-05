@@ -1,6 +1,7 @@
 import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
-import { Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import { I18nManager, Image, StyleSheet, Text, TouchableOpacity } from 'react-native';
+import  Icon from 'react-native-vector-icons/MaterialIcons';
 import { ThemeContext } from '../../theming/themeContext';
 
 type Props={
@@ -16,7 +17,7 @@ const SettingsListItem :React.FC<Props>= ({title,onPress})=> {
         onPress={onPress}
       >
         <Text style={StyleSheet.flatten([styles.listItemText,{color:theme.titleNotActive}])}>{t(title)}</Text>
-        <Image source={require('../../assets/right-arrow.png')} style={{width:25,height:25}} />
+        <Icon style={styles.icon} name={`arrow-${I18nManager.isRTL?'back':'forward'}-ios`} size={25} color={theme.titleNotActive}/>
       </TouchableOpacity>
     );
 }
@@ -35,7 +36,6 @@ const styles = StyleSheet.create({
     // color: '#AAAAAA',
   },
   icon: {
-    color: '#CCCCCC',
     paddingLeft: 5
   }
 });

@@ -32,7 +32,7 @@ const NewsFeed: React.FC<Props>= ({navigation}) => {
     
     const fun = ({url}: {url: string}) => {
       const lng = url.replace('newsfeed://news', '');
-      if (lng == '/fr' || lng == '/en') {
+      if (lng == '/fr' || lng == '/en'||lng=='/ar') {
         changeLanguage(lng.replace('/', ''));
       }
     };

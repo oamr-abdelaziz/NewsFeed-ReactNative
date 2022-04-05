@@ -95,6 +95,7 @@ const styles = StyleSheet.create({
   },
   author: {
     fontSize: 10,
+    textAlign:'left'
   },
   publishedAt: {
     fontSize: 10,

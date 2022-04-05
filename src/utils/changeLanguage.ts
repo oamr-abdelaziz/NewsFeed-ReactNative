@@ -1,6 +1,7 @@
 import AsyncStorage from '@react-native-async-storage/async-storage';
 import i18n from "../translation/i18n";
 import RNRestart from 'react-native-restart';
+import { I18nManager } from 'react-native';
 export const getData = async () :Promise<any>=> {
   try {
     const value = await AsyncStorage.getItem('lang')
@@ -29,7 +30,9 @@ export const changeLanguage=async(lang:string):Promise<any>=>{
   console.log(prev);
   
   if(prev!=lang){
-    i18n.changeLanguage(lang);
+    i18n.changeLanguage(lang).then(()=>{
+        I18nManager.forceRTL(i18n.language=='ar')
+    });
     storeData(lang);
   }
 }

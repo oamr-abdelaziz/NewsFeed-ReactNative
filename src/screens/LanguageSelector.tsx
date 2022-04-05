@@ -15,6 +15,11 @@ const languages = [
     name: 'Francais',
     englishName: 'French',
   },
+  {
+    locale: 'ar',
+    name: 'Arabic',
+    englishName: 'Arabic',
+  },
 ];
 
 class LanguageSelector extends React.Component {

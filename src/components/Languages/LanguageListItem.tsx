@@ -3,7 +3,7 @@ import { useTranslation } from 'react-i18next';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { ThemeContext } from '../../theming/themeContext';
 import { changeLanguage } from '../../utils/changeLanguage';
-// import Icon from 'react-native-vector-icons/Ionicons';
+import Icon from 'react-native-vector-icons/Ionicons';
 
 type Props={
   locale:string,
@@ -32,12 +32,11 @@ const LanguageListItem :React.FC<Props> = (props)=> {
         </View>
         {
           props.isActive &&
-            // <Icon
-            //   style={styles.active}
-            //   name="ios-checkmark-circle-outline"
-            //   size={30}
-            // />
-            <Image source={require('../../assets/tick.png')} style={{width:30,height:30}} />
+            <Icon
+              style={styles.active}
+              name="ios-checkmark-circle-outline"
+              size={30}
+            />
         }
       </TouchableOpacity>
     );
@@ -59,7 +58,8 @@ const styles = StyleSheet.create({
     color: '#434343'
   },
   subtitle: {
-    color: '#AAAAAA'
+    color: '#AAAAAA',
+    textAlign:'left'
   },
   active: {
     color: '#03a87c'

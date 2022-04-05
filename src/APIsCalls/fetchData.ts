@@ -5,7 +5,7 @@ const TOKEN= 'apiKey=fcc5896bf5344bf283f97f804fa9fe56'
 export const fetchData=async (url:string,lng:string):Promise<any>=>{
     // return fetch(`${API}${url}?${TOKEN}`).then((res)=>{
         console.log('fetch again');
-        let country=lng=="en"?"us":"fr"
+        let country=lng=="en"?"us":lng=="fr"?'fr':"eg"
         const res = await fetch(`${API}/${url}?country=${country}&${TOKEN}`);
     return await res.json();
 }
