@@ -30,6 +30,13 @@ i18n
 });
 
 export default i18n;
+
+
+
+
+
+/////////////////Closed Trials////////////////////
+
 // import i18next from 'i18next';
 // import Backend from 'i18next-locize-backend';
 

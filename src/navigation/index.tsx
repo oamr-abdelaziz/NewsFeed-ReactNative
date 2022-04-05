@@ -9,17 +9,18 @@ import {ThemeContext} from '../theming/themeContext';
 import HomeStackScreen from './HomeStack';
 import SettingsStack from './SettingsStack';
 import images from '../assets/images';
-import {t} from 'i18next';
-const Navigation = () => {
+
+const Navigation: React.FC = () => {
   //adb shell am start -W -a android.intent.action.VIEW -d "newsfeed://set" com.newsfeed
   //adb shell am start -W -a android.intent.action.VIEW -d "newsfeed://news" com.newsfeed
+  const {t}=useTranslation();
   const Tab = createBottomTabNavigator();
   const linking = {
     prefixes: ['newsfeed://'],
     config: {
       screens: {
         Home: {
-          path: 'news/:lng?'
+          path: 'news/:lng?',
         },
 
         Settings: 'set',
@@ -30,7 +31,7 @@ const Navigation = () => {
   return (
     <NavigationContainer linking={linking}>
       <Tab.Navigator
-        screenOptions={({route}) => ({
+        screenOptions={({route}: any) => ({
           headerShown: false,
           tabBarIcon: ({focused, color, size}) => {
             let iconName;
@@ -60,10 +61,18 @@ const Navigation = () => {
           },
           tabBarActiveTintColor: 'tomato',
           tabBarInactiveTintColor: 'gray',
-          tabBarLabel:route.title
+          tabBarLabel: route.title,
         })}>
-        <Tab.Screen name='Home' options={{title:t('Home')}} component={HomeStackScreen} />
-        <Tab.Screen name='Settings' options={{title:t('Settings')}} component={SettingsStack} />
+        <Tab.Screen
+          name="Home"
+          options={{title: t('Home')}}
+          component={HomeStackScreen}
+        />
+        <Tab.Screen
+          name="Settings"
+          options={{title: t('Settings')}}
+          component={SettingsStack}
+        />
       </Tab.Navigator>
     </NavigationContainer>
   );

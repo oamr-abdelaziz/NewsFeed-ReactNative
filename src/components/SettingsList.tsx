@@ -2,6 +2,10 @@ import React from 'react';
 import {View} from 'react-native';
 import SettingsListItem from './SettingsListItem';
 
+type Props={
+  onPressItem:(val:string)=>void
+}
+
 const settings = [
   {
     name: 'Display language',
@@ -13,7 +17,7 @@ const settings = [
 },
 ];
 
-const SettingsList = ({onPressItem})=> {
+const SettingsList:React.FC<Props> = ({onPressItem})=> {
     
     return (
       <View>

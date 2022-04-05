@@ -3,7 +3,12 @@ import { useTranslation } from "react-i18next";
 import { StyleSheet, Text } from "react-native";
 import { ThemeContext } from "../theming/themeContext";
 
-const SpText = ({children,style,key})=>{
+type Props={
+    children:any,
+    style:{},
+    key:string
+}
+const SpText :React.FC<Props> = ({children,style,key})=>{
     const {theme} = useContext(ThemeContext);
   const {t} = useTranslation();
    

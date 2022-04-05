@@ -2,7 +2,11 @@ import React from 'react';
 import { useTranslation } from 'react-i18next';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 
-const SettingsListItem= ({title,onPress})=> {
+type Props={
+  title:string,
+  onPress:()=>void
+}
+const SettingsListItem :React.FC<Props>= ({title,onPress})=> {
     const {t} = useTranslation();
     return (
         <TouchableOpacity

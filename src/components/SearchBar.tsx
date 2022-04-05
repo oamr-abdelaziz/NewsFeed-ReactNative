@@ -1,23 +1,27 @@
-import { t } from 'i18next';
 import React, { useContext, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import { Image, StyleSheet, TextInput, TouchableOpacity, View } from 'react-native'
 import { ThemeContext } from '../theming/themeContext';
+import { ItemProps } from './MultipleNews';
 
-const SearchBar = ({items,setFilteredItems}) => {
+type Props={
+  items:ItemProps['item'][],
+  setFilteredItems:(key:ItemProps['item'][])=>void
+}
+const SearchBar  :React.FC<Props>= ({items,setFilteredItems}) => {
   const {t} = useTranslation();
   const {theme}= useContext(ThemeContext)
-    const [searchValue, setSearchValue] = useState(null);
+    const [searchValue, setSearchValue] = useState('');
     useEffect(() => {
         if(searchValue!=null||searchValue=='')
-            setFilteredItems(items.filter((item)=>item.title.toLowerCase().includes(searchValue.toLowerCase())))
+            setFilteredItems(items.filter((item)=>item.title&&item.title.toLowerCase().includes(searchValue.toLowerCase())))
         else
             setFilteredItems(items)
     }, [searchValue])
     
     return (
         <View style={styles.textInputView}>
-            <TextInput placeholder={t('search')} placeholderTextColor={theme.searchBarPlaceHolder} style={StyleSheet.flatten([styles.textInput,{color:theme.searchBarForeGround,borderColor:theme.searchBarBorder}])} value={searchValue} onChangeText={(val)=>setSearchValue(val)}/>
+            <TextInput placeholder={t('search')} placeholderTextColor={theme.searchBarPlaceHolder} style={StyleSheet.flatten([styles.textInput,{color:theme.searchBarForeGround,borderColor:theme.searchBarBorder}])} value={searchValue} onChangeText={(val:any)=>setSearchValue(val)}/>
             {/* <TouchableOpacity
             style={styles.closeButtonParent}
             onPress={() => setSearchValue(null)}

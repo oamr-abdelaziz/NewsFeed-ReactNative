@@ -1,17 +1,18 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 import SettingsList from '../components/SettingsList';
-const SettingsScreen = ({navigation}) => {
-  return (
-    // <View>
-    // <TouchableHighlight style={{alignItems:'center',padding:5}}
-    // //  onPress={()=>toggleLang()}
-    //  ><Text>toggle lang</Text></TouchableHighlight>
 
-    // </View>
+type Props = {
+  navigation: {
+    navigate: (a: string) => void;
+  };
+};
+
+const SettingsScreen: React.FC<Props> = ({navigation}) => {
+  return (
     <View style={styles.inputContainer}>
-      <SettingsList 
-        onPressItem={(screen) => navigation.navigate(screen)}
+      <SettingsList
+        onPressItem={(screen: string) => navigation.navigate(screen)}
       />
     </View>
   );

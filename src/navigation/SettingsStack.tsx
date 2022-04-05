@@ -6,10 +6,10 @@ import SettingsScreen from '../screens/SettingsScreen';
 import LanguageSelector from '../screens/LanguageSelector';
 import {ThemeContext} from '../theming/themeContext';
 
-const SettingsStackScreen = () => {
+const SettingsStackScreen: React.FC = () => {
   const {theme} = useContext(ThemeContext);
   const SettingsStack = createNativeStackNavigator();
-  const {t, i18n} = useTranslation();
+  const {t} = useTranslation();
 
   return (
     <SettingsStack.Navigator
@@ -27,7 +27,7 @@ const SettingsStackScreen = () => {
         component={SettingsScreen}
         options={{title: t('Settings')}}
       />
-          <SettingsStack.Screen
+      <SettingsStack.Screen
         name="LanguageSelector"
         component={LanguageSelector}
         options={{title: t('Language Selector')}}

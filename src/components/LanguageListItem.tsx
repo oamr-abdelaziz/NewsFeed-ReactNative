@@ -4,7 +4,13 @@ import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { changeLanguage } from '../utils/changeLanguage';
 // import Icon from 'react-native-vector-icons/Ionicons';
 
-const LanguageListItem = (props)=> {
+type Props={
+  locale:string,
+  isActive:boolean,
+  name:string,
+  englishName:string|undefined
+}
+const LanguageListItem :React.FC<Props> = (props)=> {
     const {t}=useTranslation()
     return (
         <TouchableOpacity

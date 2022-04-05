@@ -9,8 +9,9 @@ import {
   TouchableOpacity,
   View,
 } from 'react-native';
+import { SingleItemProps } from './NewsFeedItem';
 
-const NewsFeedItemDetails = ({newsItem}) => {
+const NewsFeedItemDetails  :React.FC<SingleItemProps>= ({newsItem}) => {
   const {t} = useTranslation();
   const {
     title,

@@ -1,9 +1,25 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { ReactElement, useCallback, useEffect, useState } from 'react';
 import {ActivityIndicator, FlatList, RefreshControl, ScrollView} from 'react-native';
 import NewsFeedItem from './NewsFeedItem';
-
-const MultipleNews = ({news,refreshControl}) => {
-    const renderItem = ({ item }) => (
+export type ItemProps={
+  item:{
+    title?:string,
+    description?:string,
+    urlToImage?:string,
+    content?:string,
+    url?:string,
+    author?:string,
+    publishedAt?:string,
+    source?:{id?:any,name?:string},
+    id?:any
+  }
+}
+type Props={
+  news:ItemProps['item'][],
+  refreshControl:ReactElement
+}
+const MultipleNews :React.FC<Props> = ({news,refreshControl}) => {
+    const renderItem = ({ item }:ItemProps) => (
         <NewsFeedItem newsItem={item}/>
       );
   return (
