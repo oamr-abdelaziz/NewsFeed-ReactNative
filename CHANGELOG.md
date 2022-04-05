@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.19](https://github.com/oamr-abdelaziz/NewsFeed-ReactNative/compare/v0.0.18...v0.0.19) (2022-04-05)
+
+
+### Bug Fixes
+
+* **refactoring:** added react-native-icons and fixed theme toggler place and some refactoring ([4b29c63](https://github.com/oamr-abdelaziz/NewsFeed-ReactNative/commit/4b29c63f8a0348e8bdf8778ba62d9d22498c9839))
+
 ### [0.0.18](https://github.com/oamr-abdelaziz/NewsFeed-ReactNative/compare/v0.0.17...v0.0.18) (2022-04-05)
 
 
