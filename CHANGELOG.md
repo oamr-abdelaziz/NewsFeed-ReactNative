@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.18](https://github.com/oamr-abdelaziz/NewsFeed-ReactNative/compare/v0.0.17...v0.0.18) (2022-04-05)
+
+
+### Bug Fixes
+
+* **typescript:** Refactored the project to apply typescript and fixed restart after language translated ([117bec6](https://github.com/oamr-abdelaziz/NewsFeed-ReactNative/commit/117bec6ed837f2b50050efbf9bfb6f398c1732ab))
+
 ### [0.0.17](https://github.com/oamr-abdelaziz/NewsFeed-ReactNative/compare/v0.0.16...v0.0.17) (2022-04-04)
 
 
