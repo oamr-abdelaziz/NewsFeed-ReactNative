@@ -1,5 +1,5 @@
 import React from 'react';
-import NewsFeedItemDetails from '../components/NewsFeedItemDetails';
+import NewsFeedItemDetails from '../components/NewsFeed/NewsFeedItemDetails';
 
 type Props = {
   route: {

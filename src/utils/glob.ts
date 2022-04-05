@@ -1,4 +1,4 @@
-import { ItemProps } from "../components/MultipleNews";
+import { ItemProps } from "../components/NewsFeed/MultipleNews";
 
 declare global {
     namespace ReactNavigation {

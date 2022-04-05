@@ -2,7 +2,7 @@ import React, { useContext, useEffect, useState } from 'react'
 import { useTranslation } from 'react-i18next';
 import { Image, StyleSheet, TextInput, TouchableOpacity, View } from 'react-native'
 import { ThemeContext } from '../theming/themeContext';
-import { ItemProps } from './MultipleNews';
+import { ItemProps } from './NewsFeed/MultipleNews';
 
 type Props={
   items:ItemProps['item'][],

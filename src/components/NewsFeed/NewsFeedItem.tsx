@@ -2,7 +2,7 @@ import {useNavigation} from '@react-navigation/native';
 import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import {Image, StyleSheet, Text, TouchableOpacity, View} from 'react-native';
-import { ThemeContext } from '../theming/themeContext';
+import { ThemeContext } from '../../theming/themeContext';
 import { ItemProps } from './MultipleNews';
 
 export type SingleItemProps={
@@ -11,7 +11,7 @@ export type SingleItemProps={
 const NewsFeedItem :React.FC<SingleItemProps>  = ({newsItem}) => {
   const {theme} = useContext(ThemeContext);
   const navigation = useNavigation();
-  const {t,i18n} = useTranslation();
+  const {t} = useTranslation();
 
   return (
     <View

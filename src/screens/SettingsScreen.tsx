@@ -1,6 +1,6 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
-import SettingsList from '../components/SettingsList';
+import SettingsList from '../components/Settings/SettingsList';
 
 type Props = {
   navigation: {

@@ -7,7 +7,7 @@ import {
   Text,
   View,
 } from 'react-native';
-import MultipleNews from '../components/MultipleNews';
+import MultipleNews from '../components/NewsFeed/MultipleNews';
 import SearchBar from '../components/SearchBar';
 import useGetData from '../hooks/useGetData';
 import {changeLanguage} from '../utils/changeLanguage';

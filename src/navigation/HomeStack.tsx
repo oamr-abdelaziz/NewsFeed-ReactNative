@@ -5,11 +5,11 @@ import {useTranslation} from 'react-i18next';
 import DetailedNewFeed from '../screens/DetailedNewFeed';
 import NewsFeed from '../screens/NewsFeed';
 import {ThemeContext} from '../theming/themeContext';
+import ThemeButton from '../components/ThemeButton';
 const HomeStackScreen: React.FC = () => {
   const {theme} = useContext(ThemeContext);
   const HomeStack = createNativeStackNavigator();
   const {t} = useTranslation();
-  console.log(t('NewsFeed'));
   
   return (
     <HomeStack.Navigator
@@ -21,7 +21,6 @@ const HomeStackScreen: React.FC = () => {
         headerStyle: {backgroundColor: theme.headerBackground},
         headerTitleAlign: 'center',
         headerTintColor: theme.headerForeground,
-        // headerRight:()=><></>
       }}>
       <HomeStack.Screen
         name="NewsFeed"

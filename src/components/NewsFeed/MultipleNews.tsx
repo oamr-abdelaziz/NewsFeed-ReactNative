@@ -1,5 +1,5 @@
-import React, { ReactElement, useCallback, useEffect, useState } from 'react';
-import {ActivityIndicator, FlatList, RefreshControl, ScrollView} from 'react-native';
+import React, { ReactElement } from 'react';
+import { FlatList} from 'react-native';
 import NewsFeedItem from './NewsFeedItem';
 export type ItemProps={
   item:{

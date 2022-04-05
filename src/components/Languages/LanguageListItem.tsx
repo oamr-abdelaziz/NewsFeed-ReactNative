@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
-import { changeLanguage } from '../utils/changeLanguage';
+import { ThemeContext } from '../../theming/themeContext';
+import { changeLanguage } from '../../utils/changeLanguage';
 // import Icon from 'react-native-vector-icons/Ionicons';
 
 type Props={
@@ -11,7 +12,8 @@ type Props={
   englishName:string|undefined
 }
 const LanguageListItem :React.FC<Props> = (props)=> {
-    const {t}=useTranslation()
+    const {t}=useTranslation();
+    const {theme} = useContext(ThemeContext);
     return (
         <TouchableOpacity
         style={styles.listItem}
@@ -19,13 +21,13 @@ const LanguageListItem :React.FC<Props> = (props)=> {
       >
         <View style={styles.textWrapper}>
           <Text
-            style={[styles.title, (props.isActive && styles.active)]
+            style={StyleSheet.flatten([styles.title,{color:theme.titleNotActive} ,(props.isActive && styles.active)])
           }>
             {t(props.name)}
           </Text>
           {
             props.englishName &&
-              <Text style={styles.subtitle}>{props.englishName}</Text>
+              <Text style={StyleSheet.flatten([styles.subtitle,{color:theme.subTitleLng}])}>{props.englishName}</Text>
           }
         </View>
         {
@@ -35,7 +37,7 @@ const LanguageListItem :React.FC<Props> = (props)=> {
             //   name="ios-checkmark-circle-outline"
             //   size={30}
             // />
-            <Image source={require('../assets/tick.png')} style={{width:30,height:30}} />
+            <Image source={require('../../assets/tick.png')} style={{width:30,height:30}} />
         }
       </TouchableOpacity>
     );

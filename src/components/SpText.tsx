@@ -6,14 +6,13 @@ import { ThemeContext } from "../theming/themeContext";
 type Props={
     children:any,
     style:{},
-    key:string
 }
-const SpText :React.FC<Props> = ({children,style,key})=>{
+const SpText :React.FC<Props> = ({children,style})=>{
     const {theme} = useContext(ThemeContext);
   const {t} = useTranslation();
    
     return(
-        <Text style={StyleSheet.flatten([styles.text,{color:theme.foreground},style])}>{t(`${key}`,children)}</Text>
+        <Text style={StyleSheet.flatten([styles.text,{color:theme.foreground},style])} >{children}</Text>
     )
 }
 

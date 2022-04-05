@@ -1,13 +1,14 @@
 import React from 'react';
 import {StyleSheet, View} from 'react-native';
 
-import LanguageListItem from '../components/LanguageListItem';
+import LanguageListItem from '../components/Languages/LanguageListItem';
 import i18n from '../translation/i18n';
 
 const languages = [
   {
     locale: 'en',
     name: 'English',
+    englishName: 'English',
   },
   {
     locale: 'fr',

@@ -24,7 +24,9 @@ const App = () => {
   return (
     <ThemeProvider>
       <Navigation/>
-      <ThemeButton/>
+      <ThemeButton 
+      styles={{position:"absolute",bottom:10,alignSelf:"center"}}
+      />
     </ThemeProvider>
   );
 };

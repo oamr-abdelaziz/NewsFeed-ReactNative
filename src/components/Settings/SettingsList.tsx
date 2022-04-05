@@ -11,10 +11,10 @@ const settings = [
     name: 'Display language',
     screen: 'LanguageSelector'
 },
-  {
-    name: 'About',
-    screen: 'About'
-},
+//   {
+//     name: 'About',
+//     screen: 'About'
+// },
 ];
 
 const SettingsList:React.FC<Props> = ({onPressItem})=> {
