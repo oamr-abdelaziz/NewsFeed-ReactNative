@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.21](https://github.com/oamr-abdelaziz/NewsFeed-ReactNative/compare/v0.0.20...v0.0.21) (2022-04-05)
+
+
+### Bug Fixes
+
+* **searchcancellation:** cancel search added to search bar ([04e1a68](https://github.com/oamr-abdelaziz/NewsFeed-ReactNative/commit/04e1a68bcf61d0ab77d57d404894aed4f39fca7c))
+
 ### [0.0.20](https://github.com/oamr-abdelaziz/NewsFeed-ReactNative/compare/v0.0.19...v0.0.20) (2022-04-05)
 
 
