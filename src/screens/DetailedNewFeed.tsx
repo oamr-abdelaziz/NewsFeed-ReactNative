@@ -1,10 +1,11 @@
 import React from 'react';
+import { ItemProps } from '../components/NewsFeed/MultipleNews';
 import NewsFeedItemDetails from '../components/NewsFeed/NewsFeedItemDetails';
 
 type Props = {
   route: {
     params: {
-      newsItem: object;
+      newsItem:  ItemProps['item'];
     };
   };
 };

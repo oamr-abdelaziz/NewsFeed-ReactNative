@@ -3,7 +3,7 @@ import i18n from '../translation/i18n';
 import RNRestart from 'react-native-restart';
 import {I18nManager} from 'react-native';
 
-export const getStoredLang = async (): Promise<any> => {
+export const getStoredLang = async (): Promise<void> => {
   try {
     const value = await AsyncStorage.getItem('lang');
     if (value !== null) {
@@ -14,7 +14,7 @@ export const getStoredLang = async (): Promise<any> => {
   }
 };
 
-export const storeLang = async (value: string): Promise<any> => {
+export const storeLang = async (value: string): Promise<void> => {
   try {
     await AsyncStorage.setItem('lang', value);
     RNRestart.Restart();
@@ -23,7 +23,7 @@ export const storeLang = async (value: string): Promise<any> => {
   }
 };
 
-export const changeLanguage = async (lang: string): Promise<any> => {
+export const changeLanguage = async (lang: string): Promise<void> => {
   const prev = await AsyncStorage.getItem('lang');
 
   if (prev != lang) {

@@ -22,27 +22,21 @@ const languages = [
   },
 ];
 
-class LanguageSelector extends React.Component {
-  static navigationOptions = {
-    title: 'Language',
-  };
-
-  render() {
-    return (
-      <View style={styles.container}>
-        {languages.map(language => (
-          <LanguageListItem
-            key={language.locale}
-            isActive={language.locale === i18n.language}
-            locale={language.locale}
-            name={language.name}
-            englishName={language.englishName}
-          />
-        ))}
-      </View>
-    );
-  }
-}
+const LanguageSelector: React.FC = () => {
+  return (
+    <View style={styles.container}>
+      {languages.map(language => (
+        <LanguageListItem
+          key={language.locale}
+          isActive={language.locale === i18n.language}
+          locale={language.locale}
+          name={language.name}
+          englishName={language.englishName}
+        />
+      ))}
+    </View>
+  );
+};
 const styles = StyleSheet.create({
   container: {
     flex: 1,
