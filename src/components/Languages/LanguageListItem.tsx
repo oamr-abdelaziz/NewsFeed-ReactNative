@@ -2,7 +2,7 @@ import React, { useContext } from 'react';
 import { useTranslation } from 'react-i18next';
 import { Image, StyleSheet, Text, TouchableOpacity, View } from 'react-native';
 import { ThemeContext } from '../../theming/themeContext';
-import { changeLanguage } from '../../utils/changeLanguage';
+import { changeLanguage } from '../../utils/functions';
 import Icon from 'react-native-vector-icons/Ionicons';
 
 type Props={

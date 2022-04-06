@@ -10,7 +10,7 @@ import {
 import MultipleNews from '../components/NewsFeed/MultipleNews';
 import SearchBar from '../components/SearchBar';
 import useGetData from '../hooks/useGetData';
-import {changeLanguage} from '../utils/changeLanguage';
+import {changeLanguage} from '../utils/functions';
 
 type Props={
   navigation:{

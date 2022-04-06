@@ -12,12 +12,12 @@ import React, { useEffect } from 'react';
 import ThemeButton from './src/components/ThemeButton';
 import Navigation from './src/navigation';
 import ThemeProvider from './src/theming/themeProvider';
-import { getData } from './src/utils/changeLanguage';
+import { getStoredLang } from './src/utils/functions';
 
 const App = () => {
  
   useEffect(()=>{
-    getData();
+    getStoredLang();
     return()=>{}
   },[])
 
