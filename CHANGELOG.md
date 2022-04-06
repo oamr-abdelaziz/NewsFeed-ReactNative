@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [0.0.25](https://github.com/oamr-abdelaziz/NewsFeed-ReactNative/compare/v0.0.24...v0.0.25) (2022-04-06)
+
+
+### Bug Fixes
+
+* **miniRefactor:** refactoring a few files ([2a381ce](https://github.com/oamr-abdelaziz/NewsFeed-ReactNative/commit/2a381ce7aa8fe569db58e1ad209dcf7a42fe6b04))
+
 ### [0.0.24](https://github.com/oamr-abdelaziz/NewsFeed-ReactNative/compare/v0.0.23...v0.0.24) (2022-04-06)
 
 
