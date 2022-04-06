@@ -6,7 +6,7 @@ import {
   StyleSheet,
   TouchableOpacity,
   View,
-  ScrollView
+  ScrollView,
 } from 'react-native';
 import SpText from '../SpText';
 import {SingleItemProps} from './NewsFeedItem';
@@ -22,12 +22,13 @@ const NewsFeedItemDetails: React.FC<SingleItemProps> = ({newsItem}) => {
     author,
     publishedAt,
     source,
-    id,
   } = newsItem;
   return (
-    <ScrollView style={styles.container}>
+    <ScrollView>
       {!!title && <SpText style={styles.title}>{title}</SpText>}
-      {!!description && <SpText style={styles.description}>{description}</SpText>}
+      {!!description && (
+        <SpText style={styles.description}>{description}</SpText>
+      )}
       {!!urlToImage && <Image style={styles.img} source={{uri: urlToImage}} />}
       {!!content && (
         <SpText style={styles.content}>
@@ -76,7 +77,6 @@ const NewsFeedItemDetails: React.FC<SingleItemProps> = ({newsItem}) => {
 };
 
 const styles = StyleSheet.create({
-  container: {},
   title: {
     fontSize: 18,
     fontWeight: '700',
@@ -95,7 +95,7 @@ const styles = StyleSheet.create({
   },
   author: {
     fontSize: 10,
-    textAlign:'left'
+    textAlign: 'left',
   },
   publishedAt: {
     fontSize: 10,

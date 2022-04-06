@@ -1,15 +1,13 @@
-import { ItemProps } from "../components/NewsFeed/MultipleNews";
+import {ItemProps} from '../components/NewsFeed/MultipleNews';
 
 declare global {
-    namespace ReactNavigation {
-      interface RootParamList {
-        NewsFeed: undefined;
-        DetailedNewFeed:{ newsItem: ItemProps['item'] };
-        Settings: undefined;
-
-      }
+  namespace ReactNavigation {
+    interface RootParamList {
+      NewsFeed: undefined;
+      DetailedNewFeed: {newsItem: ItemProps['item']};
+      Settings: undefined;
     }
   }
+}
 
-
-export {}
+export {};

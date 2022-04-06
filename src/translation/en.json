@@ -1,18 +1,18 @@
 {
-    "translation": {
-        "NewsFeed":"News Feed",
-        "Detailed NewFeed":"Detailed NewsFeed",
-        "Settings":"Settings",
-        "Language Selector":"Language Selector",
-        "Display language":"Display language",
-        "About":"About",
-        "English":"English",
-        "Francais":"French",
-        "Arabic":"Arabic",
-        "Home":"Home",
-        "search":"Filter Results",
-        "url":"For the full article :-",
-        "author":"author",
-        "publish":"published at :"
-    }
+  "translation": {
+    "NewsFeed": "News Feed",
+    "Detailed NewFeed": "Detailed NewsFeed",
+    "Settings": "Settings",
+    "Language Selector": "Language Selector",
+    "Display language": "Display language",
+    "About": "About",
+    "English": "English",
+    "Francais": "French",
+    "Arabic": "Arabic",
+    "Home": "Home",
+    "search": "Filter Results",
+    "url": "For the full article :-",
+    "author": "author",
+    "publish": "published at :"
+  }
 }
